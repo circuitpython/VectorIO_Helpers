@@ -30,7 +30,7 @@ from displayio import Group
 
 
 class RotatedPolygon(Group):
-    def __init__(self, pixel_shader, points, x, y, rotation):
+    def __init__(self, pixel_shader, points, x, y, rotation, color_index=0):
         rotated_points = []
         self._original_points = points
         for point in points:
@@ -41,7 +41,7 @@ class RotatedPolygon(Group):
                 )
             )
         print(rotated_points)
-        _poly = Polygon(pixel_shader=pixel_shader, points=rotated_points, x=x, y=y)
+        _poly = Polygon(pixel_shader=pixel_shader, points=rotated_points, x=x, y=y, color_index=color_index)
         super().__init__()
         self.append(_poly)
         self._rotation = rotation
